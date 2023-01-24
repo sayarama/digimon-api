@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useParams} from "react";
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
@@ -30,7 +30,7 @@ function App() {
             {item.name}
           </h1>
           <img src={`https://digimon-api.com/images/digimon/w/${item.name.replace(/\s+/g, '_')}.png`} />
-          <Link to='Detail/'>
+          <Link to={`Detail/${item.id}`}>
           <button>Detail</button>
           </Link>
         </div>

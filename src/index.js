@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import  Detail from './Detail/Detail'
+import Detail from './Detail/Detail'
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path:"detail/",
+    path:"/Detail/:id",
     element: <Detail />
   }
 ])

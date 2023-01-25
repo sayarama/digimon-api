@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import './Detail.css'
+import { Await, useParams } from 'react-router-dom'
 
 function Detail() {
 
@@ -11,25 +12,37 @@ function Detail() {
     axios
       .get(`https://digimon-api.com/api/v1/digimon/${id}`)
       .then(res => {
-        console.log(res)
         setDetail(res.data)
       })
       .catch(err => {
         console.log(err)
       })
-  })
+  }, [])
 
-  console.log("detail", details)
+
+
+  // async function digimon() {
+  //   const response = await fetch(`https://digimon-api.com/api/v1/digimon/${id}`);
+  //   return await response.json();
+  // }
+
+  console.log('details ==> ', details)
+
+  
+
+
 
   return (
-    <div className='main'>
-    {details.map(detail => (
-      <div className='detail'>
-        <h1 key={detail.id}>
+    <div>
+    {details.length > 0 ? details.map(detail => (
+      <div key={detail.id} className='detail'>
+        <h1>
           {detail.name}
         </h1>
+
+        <img src={detail.images}/>
       </div>
-    ))}
+    )): null}
     </div>
   )
 }
